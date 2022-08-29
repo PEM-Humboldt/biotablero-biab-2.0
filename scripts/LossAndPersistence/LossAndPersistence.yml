@@ -1,0 +1,4 @@
+script: LossAndPersistence.R
+inputs:
+outputs:
+description: "Estimate Persistence and Loss Area."
