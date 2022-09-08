@@ -4,6 +4,10 @@ ptm = proc.time()
 # Set working directory
 setwd("/scripts/LossAndPersistence")
 
+# Set output folder
+args <- commandArgs(trailingOnly=TRUE)
+outputFolder <- args[1] # Arg 1 is always the output folder
+
 # Load previous functions
 source("./functions/load_libraries_function.R")
 source("./functions/raster_category_area_by_geofence_function.R")
@@ -14,7 +18,7 @@ load_libraries(c("doParallel","sf","dplyr","rjson"))
 #### DEFINE INPUT PARAMETERS ####
 
 # Set temporal path
-temporal_path = "/output/LossAndPersistence/borrar"
+temporal_path = file.path(outputFolder, "borrar")
 
 # Set land cover raster resolution in meters
 raster_res = 27.7
@@ -86,9 +90,6 @@ gc()
 total_time = proc.time() - ptm #runtime: 2961.31 seconds
 
 data_frame <- as.data.frame(do.call(rbind, forest_results))# Convert list to data frame rows
-
-args <- commandArgs(trailingOnly=TRUE)
-outputFolder <- args[1] # Arg 1 is always the output folder
 
 output <- list("output_json" =  toJSON(data_frame)) 
 jsonData <- toJSON(output, indent=2)
