@@ -1,4 +1,8 @@
 script: LossAndPersistence.R
 inputs:
 outputs:
+  output_json:
+    label: result
+    description: Result data frame
+    type: text
 description: "Estimate Persistence and Loss Area."
