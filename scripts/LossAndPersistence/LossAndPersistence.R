@@ -56,7 +56,7 @@ result_files <- list()
 
 #### CALCULATE AREA FOR EACH PERSISTENCE_LOSS CLASS, GEOFENCE AND PERIOD ####
 
-forest_results = foreach(i = 3:4, .combine = rbind.data.frame, .verbose = TRUE) %do% {
+forest_results = foreach(i = 1:length(raster_file), .combine = rbind.data.frame, .verbose = TRUE) %do% {
   
   results = raster_category_area_by_geofence(temporal_path = temporal_path,
                                              raster_file = raster_file[i],

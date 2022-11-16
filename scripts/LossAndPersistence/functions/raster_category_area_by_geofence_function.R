@@ -38,7 +38,7 @@ raster_category_area_by_geofence = function(temporal_path,
   source("./functions/load_libraries_function.R")
   
   #Load/install libraries
-  load_libraries(c("gdalUtilities", "doParallel", "sf", "rasterDT"))
+  load_libraries(c("gdalUtilities", "doParallel", "sf", "rasterDT","raster","rgdal"))
   
   #### MASK RASTER Y CALCULATE AREA ####
   
